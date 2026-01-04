@@ -1,0 +1,167 @@
+\documentclass[12pt,a4paper,twoside]{book}
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage[T5]{fontenc}
+\usepackage{amsmath, amssymb, physics, mathrsfs}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage[overload]{textcase} % Xử lý viết hoa tiếng Việt cực chuẩn
+\usepackage{indentfirst}
+\usepackage{xcolor}
+\usepackage{lipsum}
+\usepackage[labelfont=bf]{caption}
+\usepackage{setspace}
+%\setstretch{1.1}
+%\linespread{1.0} % Trở về mặc định hoặc 0.95 nếu muốn cực khít
+\usepackage[
+    top=2.5cm, bottom=2.5cm, 
+    inner=2.5cm, outer=2cm, 
+    headheight=16pt, includeheadfoot
+]{geometry}
+
+\usepackage[colorlinks=true, linkcolor=black, citecolor=black, urlcolor=blue]{hyperref}
+
+% --- CẤU HÌNH HEADER & FOOTER (GRIFFITHS STYLE) ---
+\pagestyle{fancy}
+\fancyhf{}
+
+% Định dạng lại Mark để lấy đúng tên chương/mục
+\makeatletter
+\renewcommand{\chaptermark}[1]{%
+  \markboth{\ifnum\c@secnumdepth>\m@ne
+    \thechapter.\ #1\fi}{}}
+\renewcommand{\sectionmark}[1]{%
+  \markright{\ifnum\c@secnumdepth>\z@
+    \thesection\ #1\fi}}
+\makeatother
+
+
+% Đẩy Header ra sát mép giấy (1.2cm)
+\fancyhfoffset[LE,RO]{1.2cm} 
+
+% Trang CHẴN (Even): Số trang bên Trái, Tên Chương bên Phải
+\fancyhead[LE]{\textbf{\thepage}}
+\fancyhead[RE]{\textit{\leftmark}}
+
+% Trang LẺ (Odd): Tên Mục bên Trái, Số trang bên Phải
+\fancyhead[LO]{\textit{\rightmark}}
+\fancyhead[RO]{\textbf{\thepage}}
+
+\renewcommand{\headrulewidth}{0.5pt}
+
+% Trang đầu chương: Chỉ hiện số trang ở Header (Đúng chuẩn Griffiths)
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyhfoffset[LE,RO]{1.2cm}
+  \fancyhead[LE,RO]{\textbf{\thepage}}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+% --- ĐỊNH DẠNG TIÊU ĐỀ CHAPTER ---
+\titleformat{\chapter}[hang]
+  {\normalfont\bfseries}
+  {\fontsize{60}{60}\selectfont\thechapter}
+  {20pt}
+  {\Huge\MakeTextUppercase}
+  [\vspace{1ex}\titlerule]
+
+\titlespacing*{\chapter}{0pt}{-20pt}{40pt}
+
+% --- ĐỊNH DẠNG TIÊU ĐỀ SECTION ---
+\titleformat{\section}
+  {\normalfont\large\bfseries}
+  {\thesection}
+  {1em}
+  {\MakeTextUppercase}
+  [{\vspace{2pt}\titlerule[0.5pt]}] % Đã fix lỗi dấu ngoặc lồng nhau
+
+\titlespacing*{\section}{0pt}{3.5ex}{2.5ex}
+
+\newcommand{\eq}[2]{
+    \begin{equation}
+        #2 \label{eq:#1}
+    \end{equation}
+}
+\newcommand{\eqs}[1]{
+    \begin{equation*}
+        #1
+    \end{equation*}
+}
+\usepackage[most]{tcolorbox}
+
+% Cấu trúc: \fig{tên_file}{độ_rộng}{chú_thích}{label}
+\newcommand{\fig}[4]{
+    \begin{figure}[htbp]
+        \centering
+        \includegraphics[width=#2\textwidth]{#1}
+        \caption{#3}
+        \label{fig:#4}
+    \end{figure}
+}
+% Cấu trúc: \tab{chú_thích}{label}{nội_dung_tabular}
+\usepackage{booktabs}
+\newcommand{\tab}[3]{
+    \begin{table}[htbp]
+        \centering
+        \caption{#1}
+        \label{tab:#2}
+        \vspace{0.5em}
+        #3
+    \end{table}
+}
+
+% --- Cấu hình hộp Ghi chú ngoài lề (Aside Box) ---
+\newtcolorbox{more}{
+    enhanced,
+    breakable,            % Quan trọng: Để hộp có thể nhảy sang trang mới nếu quá dài
+    colback=gray!10,      % Màu nền xám rất nhạt
+    colframe=gray!40,     % Màu thanh kẻ dọc bên trái
+    arc=0pt,              % Góc vuông cho đúng chuẩn sách Physics
+    outer arc=0pt,
+    boxrule=0pt,          % Xóa viền các cạnh
+    leftrule=3pt,         % Chỉ để lại thanh kẻ dọc bên trái
+    left=12pt,            % Khoảng cách chữ với lề trái
+    right=12pt,
+    top=10pt,
+    bottom=10pt,
+    fontupper=\small, % Chữ nhỏ hơn một chút và in nghiêng cho đúng chất "ngoài lề"
+    before skip=15pt,     % Khoảng cách với đoạn văn trên
+    after skip=15pt       % Khoảng cách với đoạn văn dưới
+}
+\begin{document}
+
+% Trang bìa
+\pagestyle{empty}
+\vspace*{3cm}
+\noindent
+{\Huge \textbf{Solid State Physics}} \\[0.8cm]
+\rule{\textwidth}{1pt} \\[0.6cm]
+{\large \textbf{Phong Chuc Vo}} \\
+\textit{University of Science, VNUHCM}\\
+\textit{Department of Theoretical Physics}
+\newpage
+
+\pagenumbering{roman}
+\pagestyle{plain}
+\chapter*{Lời mở đầu}
+\input{Contents/Thanks.tex}
+\tableofcontents
+\clearpage
+
+\mainmatter
+\pagestyle{fancy}
+
+
+\chapter{The Early Days of Solid State.}
+\thispagestyle{empty}
+\input{Contents/Chapter_1.tex}
+\chapter{\dots}
+\thispagestyle{empty}
+\input{Contents/Chapter_2.tex}
+\chapter{\dots}
+\thispagestyle{empty}
+\input{Contents/Chapter_3.tex}
+\chapter{\dots}
+\thispagestyle{empty}
+\input{Contents/Chapter_4.tex}
+\end{document}

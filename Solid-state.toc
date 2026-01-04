@@ -1,0 +1,8 @@
+\babel@toc {vietnamese}{}\relax 
+\contentsline {chapter}{\numberline {1}The Early Days of Solid State.}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Periodic (Born–von Karman) Boundary Conditions}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Evolution of Heat Capacity Models}{2}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}The law of Dulong - Petit}{2}{subsection.1.2.1}%
+\contentsline {chapter}{\numberline {2}\dots }{3}{chapter.2}%
+\contentsline {chapter}{\numberline {3}\dots }{5}{chapter.3}%
+\contentsline {chapter}{\numberline {4}\dots }{7}{chapter.4}%
