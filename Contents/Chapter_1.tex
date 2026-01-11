@@ -1,0 +1,119 @@
+%------------------------------------------
+%   1.	Periodic (Born–von Karman) Boundary Conditions
+%------------------------------------------
+\section{Periodic (Born–von Karman) Boundary Conditions}
+Xét bài toán tính số electron có thể tồn tại trong một sợi dây đồng với chiều dài $L$ ở một mức năng lượng nhất định. 
+Bài toán này có thể giải theo nhiều cách nhưng trong Solid-state có một cách rất hay là dùng điều kiện biên tuần hoàn, tức là ta biến sợi dây này thành 1 vòng tròn, 
+khi đó electron này sẽ chỉ chạy quanh vòng tròn này. Hàm sóng cho bất kỳ electron trong vòng này là 
+    \eq{1.1}{e^{ikr}.}
+Hàm sóng này có các giá trị như nhau tại vị trí $r$ và $r +L$, tức là ta đi hết 1 vòng tròn, trong đó giá trị của $k$ là
+    \eq{1.2}{k = \frac{2\pi n}{L}.}
+Với chiều dài $L$ đủ lớn thì ta được phép thay tổng bằng một tích phân sau\footnote{Để biết chiều dài đủ lớn thì bạn so sánh chiều dài với kích thước của electron.}
+    \eq{1.3}{\sum_k \rightarrow \frac{L}{2\pi}\int_{-\infty}^{\infty}dk.}
+Để hiểu phép ánh xạ này một cách đơn giản là giữa các điểm trong không gian $k$ sẽ có khoảng cách là $L/2\pi$ (điều này quyết định mật độ trạng thái trong không gian $k$)
+nên ta có thể thay thế tổng rời rạc bằng tích phân liên tục nhân vơi khoảng cách giữa các điểm đó.  
+    \begin{more}
+        \textit{Vu vơ thêm:} Tại sao hệ số $L/2\pi$ lại là mật độ trạng thái. Ta có
+        \eqs{\Delta k = \frac{2\pi}{L}.}
+        Khi xét mật độ trạng thái tức là
+        \eqs{\frac{1}{\Delta k} = \frac{L}{2\pi}.}
+        Tổng rời rạc theo $k$ ở trên tức là ta đang cộng từng điểm $k$ có trong không gian và mỗi điểm cách nhau một khoảng $\Delta k$. Khi đó
+        \eqs{\sum_k \approx \sum_k \Delta k \times \frac{1}{\Delta k} \rightarrow \frac{L}{2\pi}\int_{-\infty}^{\infty}dk.}
+    \end{more}
+Tất cả những lập luận trên đều là đang xét trong bài toán một chiều, khi mở rộng ra bài toán 3 chiều thì ta thu được
+    \eq{1.4}{\sum_{\mathbf{k}} \rightarrow \left(\frac{L}{2\pi}\right)^3 \int_{-\infty}^{\infty}d\mathbf{k}.}
+%------------------------------------------
+%   2.	Evolution of Heat Capacity Models
+%------------------------------------------
+\section{Evolution of Heat Capacity Models}
+\subsection{The law of Dulong - Petit}
+Năm 1819, theo định luật Dulong - Petit\footnote{Định luật này được đề xuất bởi 2 nhà vật lý người pháp là Pierre Louis Dulong (1785 - 1838) và Alexis Thérèse Petit (1791 - 1820). Cả hai đều không được nhớ đến nhiều ngoài định luật này.} thì nhiệt dung được cho bởi
+    \eq{1.5}{C = 3k_B \quad \text{trên mỗi nguyên tử}}
+Trong đó $k_B$ là hằng số Boltzmann. Trong xuyên suốt ta sẽ luôn quan tâm đến nhiệt dung $C$ trên mỗi nguyên tử của bất kỳ vật liệu nào,
+ở đây ta sẽ không phân biệt giữa nhiệt dung đẳng áp $C_p$ và nhiệt dung đẳng tích $C_v$ bởi lẽ giá trị của chúng không chênh lệch nhau quá nhiều.
+Định luật này mặc dù rất gần với thực tế nhưng có một vài trường hợp thì định luật này không phù hợp. 
+\tab{Nhiệt dung của một vài chất rắn ở nhiệt độ và áp suất phòng}{capacity}{
+    \begin{tabular}{lc} 
+        \toprule 
+        Vật liệu & $C/R$ \\ 
+        \midrule 
+        Nhôm (Al) & 2.91 \\
+        Chì (Pb) & 3.03 \\
+        Đồng (Cu) & 2.94 \\
+        Vàng (Au) & 3.05 \\
+        Bạc (Ag) & 2.99 \\
+        Kim cương (C) & 0.735\\
+        \bottomrule 
+    \end{tabular}
+}\\
+Như đã thấy trong bảng~\ref{tab:capacity} thì ngoại trừ kim cương thì các vật liệu khác gần như đúng với định luật $C/R=3$ ở nhiệt độ cao. Tuy nhiên, khi nhiệt độ giảm, kết quả thực nghiệm cho thấy nhiệt dung giảm mạnh và tiến về 0, mâu thuẫn với dự đoán cổ điển.
+Trong mô tả cổ điển, khi mà mỗi nguyên tử trong một mạng tinh thể được xem như dao động quanh vị trí cân bằng trong một thế điều hòa do tương tác với các nguyên tử lân cận. Kết hợp với định lý phân bố đều năng lượng, mô hình này dẫn đến kết quả $C=3k_b$ trên mỗi nguyên tử, phù hợp với định luật Dulong - Petit. Tuy nhiên, vẫn thất bại ở nhiệt độ thấp.
+Sau đó vào năm 1907, dựa trên mô hình dao động điều hòa cổ điển, Einstein đã đề xuất một mô hình lượng tử cho chất rắn, trong đó giả định mọi nguyên tử đều nằm trong một giếng thế điều hòa giống hệt nhau và có tần số dao động là $\omega$, tần số này được gọi là tần số "Einstein".
+\subsection{Einstein Model}
+Năng lượng của dao động tử điều hòa trong một chiều được cho bởi
+    \eq{1.6}{E_n = \left(n + \frac{1}{2}\right)\hbar \omega, \quad n = 0, 1, 2, \ldots}
+Trong đó $\hbar$ là hằng số Planck rút gọn và $\omega$ là tần số dao động của nguyên tử trong mạng tinh thể (hoặc tần số "Einstein").\\
+Trong vật lý thống kê, ta có tổng thống kê chính tắc lượng tử được cho bởi
+    \eq{1.7}{\mathcal{Z} = \sum_{n\geq 0} e^{-E_n/k_B T}=\frac{1}{2\sinh(\beta\hbar\omega/2)}.} 
+    \begin{more}
+        \textit{Làm toán tí}: Ta có 
+        \eqs{
+            \begin{aligned}
+                \mathcal{Z} &= \sum_{n\geq 0} e^{-E_n/k_B T}\\
+                &= \sum_{n\geq 0} e^{-\beta\hbar\omega(n+1/2)}\\
+                &= e^{-\beta\hbar\omega/2} \sum_{n\geq 0} e^{-\beta\hbar\omega n}\\
+                &= e^{-\beta\hbar\omega/2} \frac{1}{1 - e^{-\beta\hbar\omega}}\\
+                &= \frac{1}{2\sinh(\beta\hbar\omega/2)}. 
+            \end{aligned}
+        }
+        Ở đây ta đặt $\beta = 1/k_B T$.
+    \end{more}
+Khi đó ta có giá trị kỳ vọng của năng lượng là 
+    \eq{1.8}{\langle E \rangle = -\frac{1}{\mathcal{Z}} \frac{\partial \mathcal{Z}}{\partial \beta} = \hbar\omega\left(n_B(\beta\hbar\omega) + \frac{1}{2}\right).}
+Mode dao động có tần số $\omega$ được mô tả như một mode boson có số chiếm trung bình là $n_B(\beta\hbar\omega)$, tương ứng với số lượng kích thích lượng tử trung bình trong mode đó.
+    \begin{more}
+        \textit{Làm toán tí}: Ta có 2 cách để khai triển biểu thức này như sau\\
+            \begin{minipage}[t]{0.4\textwidth}
+                \vspace{0pt}
+                \textbf{Cách 1}
+                \eqs{
+                \begin{aligned}
+                    \langle E \rangle &= -\frac{1}{\mathcal{Z}} \frac{\partial \mathcal{Z}}{\partial \beta}\\
+                    &= - \frac{\partial}{\partial \beta} \ln{\mathcal{Z}}\\
+                    &= -\frac{\partial}{\partial \beta} \left(-\ln(2\sinh(\beta\hbar\omega/2))\right)\\
+                    &= \frac{\hbar\omega}{2} \coth(\beta\hbar\omega/2)\\
+                    &= \hbar\omega\left(\frac{1}{e^{\beta\hbar\omega} - 1} + \frac{1}{2}\right)\\
+                    &= \hbar\omega\left(n_B(\beta\hbar\omega) + \frac{1}{2}\right).
+                \end{aligned}
+                }
+            \end{minipage}
+            \hfill
+            \begin{minipage}[t]{0.5\textwidth}
+            \vspace{0pt}
+            \textbf{Cách 2}
+                \eqs{
+                \begin{aligned}
+                    \langle E \rangle &= -\frac{1}{\mathcal{Z}} \frac{\partial \mathcal{Z}}{\partial \beta}\\
+                    &= -\frac{1}{2\sinh(\beta\hbar\omega/2)} \frac{\partial}{\partial \beta} \left(2\sinh(\beta\hbar\omega/2)\right)\\
+                    &= -\frac{1}{2\sinh(\beta\hbar\omega/2)}\left(-\frac{\hbar\omega}{2}\right)\frac{\cosh(\beta\hbar\omega/2)}{\sinh^2(\beta\hbar\omega/2)}\\
+                    &= \frac{\hbar\omega}{2} \frac{\cosh(\beta\hbar\omega/2)}{\sinh(\beta\hbar\omega/2)}\\
+                    &= \frac{1}{2}\hbar\omega \frac{e^x + e^{-x}}{e^x - e^{-x}} \quad (x = \beta\hbar\omega/2)\\
+                    &= \frac{1}{2}\hbar\omega\frac{e^{2x} + 1}{e^{2x} - 1}\\
+                    &= \frac{1}{2}\hbar\omega\frac{(e^{2x} - 1) + 2}{e^{2x} - 1}\\
+                    &= \frac{1}{2}\hbar\omega\left(1 + \frac{2}{e^{2x} - 1}\right)\\
+                    &= \hbar\omega\left(\frac{1}{e^{\beta\hbar\omega} - 1} + \frac{1}{2}\right)\\
+                    &= \hbar\omega\left(n_B(\beta\hbar\omega) + \frac{1}{2}\right).
+                \end{aligned}
+                }
+            \end{minipage}\\
+        Ở đây ta sử dụng hàm phân bố Bose-Einstein là 
+        \eqs{n_B(x) = \frac{1}{e^{x} - 1}.}
+    \end{more}
+Khi đó nhiệt dung cho một dao động tử đơn giản là
+    \eq{1.9}{C = \frac{\partial \langle E \rangle}{\partial T} = k_B \left(\beta\hbar\omega\right)^2 \frac{e^{\beta\hbar\omega}}{\left(e^{\beta\hbar\omega} - 1\right)^2}.}
+
+
+
+
+
+
